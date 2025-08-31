@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Adventure Land</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🦕 HackerPuff 🦖</h1>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#dinosaurs" class="nav-link">Dinosaurs</a>
+                <a href="#fun-facts" class="nav-link">Fun Facts</a>
+                <a href="#games" class="nav-link">Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2 class="hero-title">Welcome to the Amazing World of Dinosaurs!</h2>
+                <p class="hero-text">Join us on an exciting journey to discover the incredible creatures that lived millions of years ago!</p>
+                <button class="cta-button" onclick="scrollToSection('dinosaurs')">Start Your Adventure!</button>
+            </div>
+            <div class="floating-dinos">
+                <span class="floating-dino">🦕</span>
+                <span class="floating-dino">🦖</span>
+                <span class="floating-dino">🦴</span>
+            </div>
+        </section>
+
+        <section id="dinosaurs" class="dinosaurs-section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Dinosaur Friends!</h2>
+                <div class="dinosaur-grid">
+                    <div class="dinosaur-card" onclick="showDinoInfo('trex')">
+                        <img src="https://i.pinimg.com/736x/cf/3b/4e/cf3b4ef83573bc0d8a02b20e0e3d0478.jpg" alt="T-Rex" class="dino-image">
+                        <h3>Tyrannosaurus Rex</h3>
+                        <p>The mighty king of dinosaurs!</p>
+                        <div class="card-emoji">🦖</div>
+                    </div>
+                    
+                    <div class="dinosaur-card" onclick="showDinoInfo('bronto')">
+                        <img src="https://static.wikia.nocookie.net/p__/images/7/78/Arlo.JPG/revision/latest?cb=20151020150203&path-prefix=protagonist" alt="Brontosaurus" class="dino-image">
+                        <h3>Brontosaurus</h3>
+                        <p>The gentle giant with a long neck!</p>
+                        <div class="card-emoji">🦕</div>
+                    </div>
+                    
+                    <div class="dinosaur-card" onclick="showDinoInfo('stego')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaboUusqJIBbZycruwU2PLielbns8RpRxsm_Xq7VWZs57Xx4aO" alt="Stegosaurus" class="dino-image">
+                        <h3>Stegosaurus</h3>
+                        <p>The spiky-backed plant eater!</p>
+                        <div class="card-emoji">🦴</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fun-facts" class="fun-facts-section">
+            <div class="container">
+                <h2 class="section-title">Amazing Dinosaur Facts!</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <div class="fact-emoji">🏃‍♂️</div>
+                        <h3>Super Speed!</h3>
+                        <p>Some dinosaurs could run as fast as 40 miles per hour!</p>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-emoji">🥚</div>
+                        <h3>Big Eggs!</h3>
+                        <p>The biggest dinosaur eggs were as large as footballs!</p>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-emoji">🌱</div>
+                        <h3>Plant Eaters!</h3>
+                        <p>Most dinosaurs were actually plant eaters, not meat eaters!</p>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-emoji">🦅</div>
+                        <h3>Flying Friends!</h3>
+                        <p>Birds are actually living dinosaurs - they evolved from them!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="games" class="games-section">
+            <div class="container">
+                <h2 class="section-title">Dinosaur Games & Activities!</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Dinosaur Sound Game</h3>
+                        <p>Click to hear dinosaur roars!</p>
+                        <button class="game-button" onclick="playDinoSound()">🦖 ROAR!</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <h3>Color Counter</h3>
+                        <p>How many dinosaurs can you count?</p>
+                        <div class="counting-game">
+                            <span class="count-dino">🦕</span>
+                            <span class="count-dino">🦖</span>
+                            <span class="count-dino">🦕</span>
+                            <span class="count-dino">🦖</span>
+                            <span class="count-dino">🦖</span>
+                        </div>
+                        <button class="game-button" onclick="countDinos()">Count Them!</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <h3>Dinosaur Dance</h3>
+                        <p>Make the dinosaur dance!</p>
+                        <div class="dance-dino" id="danceDino">🦕</div>
+                        <button class="game-button" onclick="makeDance()">Dance Party!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025  |  By: HackerPuff (Atilano, Abdul, Chi Ong)🦕🦖</p>
+        </div>
+    </footer>
+
+    <!-- Popup for dinosaur info -->
+    <div id="dinoPopup" class="popup-overlay" onclick="closePopup()">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <div id="popupContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Dinosaur info popup
+        const dinoInfo = {
+            trex: {
+                title: "Tyrannosaurus Rex",
+                emoji: "🦖",
+                facts: [
+                    "T-Rex was about 40 feet long!",
+                    "It had teeth as big as bananas!",
+                    "T-Rex lived about 68 million years ago!",
+                    "It could bite with the force of 3 cars!"
+                ]
+            },
+            bronto: {
+                title: "Brontosaurus",
+                emoji: "🦕",
+                facts: [
+                    "Brontosaurus was 72 feet long!",
+                    "It weighed as much as 4 elephants!",
+                    "It only ate plants and leaves!",
+                    "Its neck was 30 feet long!"
+                ]
+            },
+            stego: {
+                title: "Stegosaurus",
+                emoji: "🦴",
+                facts: [
+                    "Stegosaurus had 17 plates on its back!",
+                    "It had spikes on its tail for protection!",
+                    "It was about the size of a school bus!",
+                    "Its brain was only the size of a walnut!"
+                ]
+            }
+        };
+
+        function showDinoInfo(dinoType) {
+            const info = dinoInfo[dinoType];
+            const content = `
+                <h2>${info.emoji} ${info.title}</h2>
+                <ul class="dino-facts">
+                    ${info.facts.map(fact => `<li>${fact}</li>`).join('')}
+                </ul>
+            `;
+            document.getElementById('popupContent').innerHTML = content;
+            document.getElementById('dinoPopup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('dinoPopup').style.display = 'none';
+        }
+
+        // Game functions
+        function playDinoSound() {
+            alert("ROOOOOAAAAR! 🦖 (Imagine a mighty dinosaur roar!)");
+        }
+
+        function countDinos() {
+            alert("Great job! You found 5 dinosaurs! 🦕🦖🦕🦴🦖");
+        }
+
+        function makeDance() {
+            const dino = document.getElementById('danceDino');
+            dino.classList.add('dancing');
+            setTimeout(() => {
+                dino.classList.remove('dancing');
+            }, 2000);
+        }
+
+        // Smooth navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // Floating animations
+        function animateFloatingDinos() {
+            const dinos = document.querySelectorAll('.floating-dino');
+            dinos.forEach((dino, index) => {
+                dino.style.animationDelay = `${index * 0.5}s`;
+            });
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', animateFloatingDinos);
+    </script>
+</body>
+</html>
