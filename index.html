@@ -141,104 +141,11 @@
         </div>
     </div>
 
-    <script>
-        // Scroll to section function
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        // Dinosaur info popup
-        const dinoInfo = {
-            trex: {
-                title: "Tyrannosaurus Rex",
-                emoji: "🦖",
-                facts: [
-                    "T-Rex was about 40 feet long!",
-                    "It had teeth as big as bananas!",
-                    "T-Rex lived about 68 million years ago!",
-                    "It could bite with the force of 3 cars!"
-                ]
-            },
-            bronto: {
-                title: "Brontosaurus",
-                emoji: "🦕",
-                facts: [
-                    "Brontosaurus was 72 feet long!",
-                    "It weighed as much as 4 elephants!",
-                    "It only ate plants and leaves!",
-                    "Its neck was 30 feet long!"
-                ]
-            },
-            stego: {
-                title: "Stegosaurus",
-                emoji: "🦴",
-                facts: [
-                    "Stegosaurus had 17 plates on its back!",
-                    "It had spikes on its tail for protection!",
-                    "It was about the size of a school bus!",
-                    "Its brain was only the size of a walnut!"
-                ]
-            }
-        };
-
-        function showDinoInfo(dinoType) {
-            const info = dinoInfo[dinoType];
-            const content = `
-                <h2>${info.emoji} ${info.title}</h2>
-                <ul class="dino-facts">
-                    ${info.facts.map(fact => `<li>${fact}</li>`).join('')}
-                </ul>
-            `;
-            document.getElementById('popupContent').innerHTML = content;
-            document.getElementById('dinoPopup').style.display = 'flex';
-        }
-
-        function closePopup() {
-            document.getElementById('dinoPopup').style.display = 'none';
-        }
-
-        // Game functions
-        function playDinoSound() {
-            alert("ROOOOOAAAAR! 🦖 (Imagine a mighty dinosaur roar!)");
-        }
-
-        function countDinos() {
-            alert("Great job! You found 5 dinosaurs! 🦕🦖🦕🦴🦖");
-        }
-
-        function makeDance() {
-            const dino = document.getElementById('danceDino');
-            dino.classList.add('dancing');
-            setTimeout(() => {
-                dino.classList.remove('dancing');
-            }, 2000);
-        }
-
-        // Smooth navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                scrollToSection(targetId);
-            });
-        });
-
-        // Floating animations
-        function animateFloatingDinos() {
-            const dinos = document.querySelectorAll('.floating-dino');
-            dinos.forEach((dino, index) => {
-                dino.style.animationDelay = `${index * 0.5}s`;
-            });
-        }
-
-        // Initialize animations on load
-        window.addEventListener('load', animateFloatingDinos);
-    </script>
+    
 </body>
 
 </html>
+
 
 
 
